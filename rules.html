@@ -11,23 +11,15 @@
                 var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
                 var firstSheetName = workbook.SheetNames[0];
                 var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
                 var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
                 var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
                 var headerRowIndex = filteredData.findIndex((row, index) =>
                   row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
                 );
-                // Fallback
                 if (headerRowIndex === -1 || headerRowIndex > 25) {
                   headerRowIndex = 0;
                 }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
                 csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
                 return csv;
             } catch (e) {
@@ -37,7 +29,8 @@
         }
         return gk_fileData[filename] || "";
         }
-        </script><!DOCTYPE html>
+</script>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,6 +38,7 @@
     <title>Rules - Maersk Carrom</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="logo.png" />
     <style>
         .nav-menu {
             transition: max-height 0.3s ease-in-out;
@@ -74,9 +68,12 @@
 <body class="bg-gray-100 font-sans">
     <header class="custom-color text-white py-4 sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-bold flex items-center">
-                <i class="fas fa-gamepad mr-2"></i> Maersk Carrom Leaderboard
-            </h1>
+            <div class="flex items-center space-x-3">
+                <a href="index.html">
+                    <img src="https://adnan-chow.github.io/MaerskCL.github.io/logo.png" alt="Maersk Logo" class="h-10 w-10 bg-white p-1 shadow-md">
+                </a>
+                <h1 class="text-xl md:text-2xl font-bold">Maersk Carrom Leaderboard</h1>
+            </div>
             <button class="menu-toggle text-2xl md:hidden focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
@@ -84,11 +81,17 @@
                 <a href="index.html" class="btn custom-color custom-color-hover text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
                     <i class="fas fa-home mr-2"></i> Home
                 </a>
-                <a href="leaderboard.html" class="btn bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+                <a href="leaderboard.html" class="btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
                     <i class="fas fa-trophy mr-2"></i> Leaderboard
                 </a>
-                <a href="submit-match.html" class="btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+                <a href="match-history.html" class="btn bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+                    <i class="fas fa-history mr-2"></i> Match History
+                </a>
+                <a href="submit-match.html" class="btn bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
                     <i class="fas fa-paper-plane mr-2"></i> Submit Match
+                </a>
+                <a href="rules.html" class="btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+                    <i class="fas fa-book mr-2"></i> Rules
                 </a>
             </nav>
         </div>
@@ -126,7 +129,7 @@
         </section>
     </main>
     <footer class="custom-color text-white text-center py-4">
-        <p>© 2025 Maersk Carrom League</p>
+        <p>© 2025 powered by Adnan (MAC212)</p>
     </footer>
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
