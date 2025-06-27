@@ -1,102 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard - Maersk Carrom</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="logo.png" />
-    <style>
-        .embed-container iframe {
-            width: 100%;
-            min-height: 400px;
-        }
-        .nav-menu {
-            transition: max-height 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-        .nav-menu.active {
-            max-height: 500px;
-        }
-        .custom-color {
-            background-color: rgba(66,176,213,255);
-        }
-        .custom-color-hover:hover {
-            background-color: rgba(38,156,191,255);
-        }
-        @media (min-width: 768px) {
-            .nav-menu {
-                max-height: none;
-                overflow: visible;
-            }
-            .menu-toggle {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maersk Carrom Leaderboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="icon" href="logo.png" />
+  <style>
+    .embed-container iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+    .nav-menu {
+      transition: max-height 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+    .nav-menu.active {
+      max-height: 500px;
+    }
+    .custom-color {
+      background-color: rgba(66, 176, 213, 1);
+    }
+    .custom-color-hover:hover {
+      background-color: rgba(38, 156, 191, 1);
+    }
+    @media (min-width: 768px) {
+      .nav-menu {
+        max-height: none;
+        overflow: visible;
+      }
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans">
-    <header class="custom-color text-white py-4 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <a href="index.html">
-                    <img src="https://adnan-chow.github.io/MaerskCL.github.io/logo.png" alt="Maersk Logo" class="h-10 w-10 bg-white p-1 shadow-md">
-                </a>
-                <h1 class="text-xl md:text-2xl font-bold">Maersk Carrom Leaderboard</h1>
-            </div>
-            <button class="menu-toggle text-2xl md:hidden focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav-menu w-full md:w-auto md:flex md:space-x-4 flex-col md:flex-row absolute md:static custom-color md:bg-transparent left-0 top-16 md:top-0 px-4 md:px-0">
-                <a href="index.html" class="btn custom-color custom-color-hover text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
-                    <i class="fas fa-home mr-2"></i> Home
-                </a>
-                <a href="leaderboard.html" class="btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
-                    <i class="fas fa-trophy mr-2"></i> Leaderboard
-                </a>
-                <a href="match-history.html" class="btn bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
-                    <i class="fas fa-history mr-2"></i> Match History
-                </a>
-                <a href="submit-match.html" class="btn bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
-                    <i class="fas fa-paper-plane mr-2"></i> Submit Result
-                </a>
-                <a href="rules.html" class="btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
-                    <i class="fas fa-book mr-2"></i> Rules
-                </a>
-            </nav>
+  <header class="custom-color text-white py-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html">
+          <img src="https://adnan-chow.github.io/MaerskCL.github.io/logo.png" alt="Maersk Logo" class="h-10 w-10 bg-white p-1 shadow-md"/>
+        </a>
+        <h1 class="text-xl md:text-2xl font-bold">Maersk Carrom Leaderboard</h1>
+      </div>
+      <button class="menu-toggle text-2xl md:hidden focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-menu w-full md:w-auto md:flex md:space-x-4 flex-col md:flex-row absolute md:static custom-color md:bg-transparent left-0 top-16 md:top-0 px-4 md:px-0">
+        <a href="index.html" class="btn custom-color custom-color-hover text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+          <i class="fas fa-home mr-2"></i> Home
+        </a>
+        <a href="leaderboard.html" class="btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+          <i class="fas fa-star mr-2"></i> Leaderboard
+        </a>
+        <a href="match-history.html" class="btn bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+          <i class="fas fa-history mr-2"></i> Match History
+        </a>
+        <a href="submit-match.html" class="btn bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+          <i class="fas fa-paper-plane mr-2"></i> Submit Result
+        </a>
+        <a href="rules.html" class="btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded flex items-center my-2 md:my-0">
+          <i class="fas fa-book mr-2"></i> Rules
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="py-8">
+    <section class="container mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl md:text-2xl font-semibold mb-3 flex items-center">
+          <i class="fas fa-star mr-2 text-yellow-500"></i> Leaderboard (Top 15)
+        </h2>
+        <div class="embed-container">
+          <iframe 
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS9BhBkUQLvNnghqE0F7pU8ccZ50xZoaSTREfnkQqcpFBzWqIlpjSjLqkHlV8BdaBbI4lU4GS7BM9qI/pubhtml?gid=1995892772&single=true&range=A1:C16&widget=true&headers=false" 
+            allowfullscreen>
+          </iframe>
         </div>
-    </header>
-    <main class="py-8">
-        <section class="container mx-auto px-4">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-xl md:text-2xl font-semibold mb-3 flex items-center">
-                    <i class="fas fa-trophy mr-2 text-yellow-500"></i> Full Leaderboard
-                </h2>
-                <div class="embed-container">
-                    <iframe 
-                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS9BhBkUQLvNnghqE0F7pU8ccZ50xZoaSTREfnkQqcpFBzWqIlpjSjLqkHlV8BdaBbI4lU4GS7BM9qI/pubhtml?gid=1995892772&amp;single=true&amp;range=A1:C16&amp;widget=true&amp;headers=false" 
-                        width="100%" 
-                        height="500" 
-                        frameborder="0">
-                    </iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="custom-color text-white text-center py-4">
-        <p>© 2025 powered by Adnan (MAC212)</p>
-    </footer>
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-    </script>
+      </div>
+    </section>
+  </main>
+
+  <footer class="custom-color text-white text-center py-4">
+    <p>© 2025 powered by Adnan (MAC212)</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+  </script>
 </body>
 </html>
