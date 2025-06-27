@@ -15,7 +15,7 @@
     }
     .embed-container iframe {
       width: 100%;
-      min-height: 300px;
+      min-height: 450px;
     }
     .nav-menu {
       transition: max-height 0.3s ease-in-out;
@@ -78,14 +78,12 @@
     <section class="container mx-auto px-4">
       <div class="bg-white bg-opacity-80 rounded-lg shadow-lg p-6 mb-6">
         <h2 class="text-xl md:text-2xl font-semibold mb-3 flex items-center">
-          <i class="fas fa-chart-line mr-2 text-blue-600"></i> Leaderboard Preview (Top 5)
+          <i class="fas fa-chart-line mr-2 text-blue-600"></i> Leaderboard Preview (Top 10)
         </h2>
         <div class="embed-container">
-          <p class="text-gray-600 text-sm">
-            [Embed Google Sheets "Maersk Carrom Leaderboard" – Leaderboard tab, Top 5 rows here]
-          </p>
-          <p class="text-xs text-gray-500">
-            Note: Replace with actual embed code from Google Sheets (Publish to web, select top 5 rows, e.g., add &range=A2:Z6 to iframe src).
+          <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS9BhBkUQLvNnghqE0F7pU8ccZ50xZoaSTREfnkQqcpFBzWqIlpjSjLqkHlV8BdaBbI4lU4GS7BM9qI/pubhtml?gid=380969480&range=A1:F11&single=true&widget=true&headers=true" frameborder="0" width="100%" height="450"></iframe>
+          <p class="text-xs text-gray-500 mt-2">
+            Real-time updates. Sorted by Total Score.
           </p>
         </div>
       </div>
